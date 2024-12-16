@@ -1,0 +1,7 @@
+services:
+  env:
+    build: .
+    container_name: env
+    volumes:
+      - .:/usr/src/app
+    command: tail -f /dev/null
