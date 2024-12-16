@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Lionel Messi",
+    "Email": "lm@gmail.com",
+    "Age": 37
+  },
+  {
+    "Name": "Cristiano Ronaldo",
+    "Email": "cr@gmail.com",
+    "Age": 39
+  },
+  {
+    "Name": "Neymar Jr.",
+    "Email": "nj@gmail.com",
+    "Age": 32
+  }
+]

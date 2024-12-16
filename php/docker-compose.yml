@@ -1,0 +1,24 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: database
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=my_database
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  web:
+    build: .
+    container_name: web
+    ports:
+      - "8080:80"
+    volumes:
+      - "./src:/var/www/html"
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
