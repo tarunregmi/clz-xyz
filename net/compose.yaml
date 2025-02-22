@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    container_name: net-app
+    volumes:
+      - .:/workspace
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    command: tail -f /dev/null
