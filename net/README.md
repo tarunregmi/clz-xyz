@@ -17,7 +17,6 @@ Here’s a quick summary of the some common templates:
 | Command               | Template Name          | Description                                |
 | --------------------- | ---------------------- | ------------------------------------------ |
 | `dotnet new console`  | Console App            | Simple command-line application            |
-| `dotnet new empty`    | Empty Web App          | Empty web app                              |
 | `dotnet new web`      | Web App (ASP.NET Core) | Basic web application                      |
 | `dotnet new webapp`   | Web App (ASP.NET Core) | Web app with Razor Pages & authentication  |
 | `dotnet new webapi`   | Web API (ASP.NET Core) | RESTful Web API                            |
