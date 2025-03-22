@@ -62,4 +62,35 @@ dotnet run
 # publish the application as a Self-Contained executable
 # <runtime_identifier>: linux-x64 | win-x64 | osx-x64
 dotnet publish -c Release -r <runtime_identifier> --self-contained
+# dotnet publish -c Release -r linux-x64 --self-contained true /p:PublishSingleFile=true
+```
+
+---
+
+### Configure PostgreSQL Database:
+
+```bash
+dotnet add package Npgsql.EntityFrameworkCore
+```
+
+Install and configure Npgsql:
+
+```bash
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+```
+
+Open `appsettings.json` file and add code (replace if exist):
+
+```json
+"ConnectionStrings": {
+    "DefaultConnection": "Host=database;Port=5445;Database=dotnet;Username=postgres;Password=password;"
+  }
+```
+
+```bash
+# generate migration file
+dotnet ef migrations add <mgName>
+
+# update database
+dotnet ef database update
 ```
