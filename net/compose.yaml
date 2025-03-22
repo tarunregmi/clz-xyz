@@ -1,4 +1,23 @@
 services:
+  database:
+    image: postgres:alpine
+    restart: always
+    user: postgres
+    container_name: dotnet_app_db
+    environment:
+      - POSTGRES_DB=dotnet
+      - POSTGRES_PASSWORD=password
+      - PGPORT=5445
+    ports:
+      - 5445:5445
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - database_data:/var/lib/postgresql/data
+
   app:
     build: .
     container_name: net-app
@@ -10,3 +29,9 @@ services:
     command: tail -f /dev/null
     ports:
       - 8080:8080
+    depends_on:
+      database:
+        condition: service_healthy
+
+volumes:
+  database_data:
